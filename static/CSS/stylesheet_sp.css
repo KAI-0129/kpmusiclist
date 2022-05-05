@@ -202,7 +202,7 @@ table th {
 }
 
 .result_music_name {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
 	width:38%;
 	text-align: left;
@@ -212,7 +212,7 @@ table th {
     color: white;
 }
 .result_media_no {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
 	width:20px;
 	text-align: left;
@@ -223,7 +223,7 @@ table th {
 }
 
 .result_media_category {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
 	width:10%;
 	text-align: left;
@@ -233,7 +233,7 @@ table th {
     color: rgb(39, 38, 38);
 }
 .result_media_name {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bold;
     margin-right: 3px;
 	width:40%;
