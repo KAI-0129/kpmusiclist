@@ -10,19 +10,19 @@ app.secret_key = "KAI"  #loging
 
 @app.route('/')
 def top():
-    return render_template('./index.html')
+    return render_template('index.html')
 
 @app.route('/album')
 def album():
-    return render_template('./album.html')
+    return render_template('album.html')
 
 @app.route('/dvd')
 def dvd():
-    return render_template('./dvd.html')
+    return render_template('dvd.html')
 
 @app.route('/serch_music')
 def serch_music():
-    return render_template('./serch_music.html')
+    return render_template('serch_music.html')
 
 @app.route("/serch_music", methods=["POST"])
 def serch_music_post():
