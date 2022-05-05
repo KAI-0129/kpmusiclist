@@ -1,0 +1,280 @@
+@charset "UTF-8";
+html {
+	overflow-y: scroll;
+}
+/* リセットCSSの記述----- */
+body, h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd {
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	background: #fff;
+	text-align: center;
+	font-size: 16px;
+	line-height: 1.4;
+	min-width: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+li {
+	font-size: 20px;
+	list-style: none;
+}
+
+a {
+	outline: none;
+	color: inherit;
+	text-decoration: none;
+}
+img {
+	border: 0px;
+	vertical-align: bottom;
+}
+/* --------------------------------------------------- */
+
+/* フォントの指定 */
+body {
+	font-family: "Noto Sans Japanese", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "游ゴシック", YuGothic, "メイリオ", "Meiryo", "HGPｺﾞｼｯｸM", "Osaka", "ＭＳ Ｐゴシック", sans-serif, Century Gothic, Arial;
+}
+
+header {
+	height:60px;
+	width: 100%;
+	background-color: #eeeaec;
+	text-align: center;
+	position:fixed;
+}
+
+header ul {
+	/* width:1200px; */
+	width: 25%;
+	margin: 0 auto;
+	display: flex;
+}
+
+
+header li {
+	color: #555;
+	width: 25%;
+	height:60px;
+	transition:0.2s; 
+}
+
+header li:hover{ 
+	color:crimson;
+	font-size: 30px;
+}
+
+.open{
+	width:60%;
+}
+
+.en{
+	position: absolute;
+	top:20px;
+	left:10%;
+}
+
+.jp{
+	position: absolute;
+	top:20px;
+	left:10%;
+}
+
+.select_lang{
+	position: absolute;
+	top:10px;
+	right:0%;
+}
+
+h3{
+	text-align: left;
+	padding-left: 20px;
+	color:slategrey
+}
+
+h2{
+	padding-left: 5px;	
+	padding-top:10px;
+}
+
+p{
+	padding-left: 15px;	
+}
+
+section {
+	text-align: center;
+	padding:20px 0;
+}
+section h1 {
+	font-size:30px;
+	height:fit-content;
+	font-weight:500;
+	padding-left: 50px;
+	color: rgb(27, 67, 187);
+}
+
+.box {
+	max-width: 1500px;
+	margin: 0 auto;
+	padding: 3%;
+}
+
+.lenge{
+	width:32%;
+}
+
+.lenge2{
+	max-width: 1500px;
+	width:50%;
+}
+.lenge3{
+	width:3%;
+}
+
+
+#sec1 {
+	background-image : url(../img/IMG_6609.JPG);
+	background-repeat: no-repeat;
+	background-position: top center;
+	height:160px;	
+	background-size:cover;
+}
+
+#sec1 h1 {
+	font-size: 45px;
+	color: #fff;
+	padding: 50px 100px 20px 100px;
+}
+
+h4 {
+	font-size: 35px;
+	color: #fff;
+	padding: 0px 100px 100px 100px;
+}
+
+.CD_category{
+    padding: 0px 0px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.CD_title {
+	background-color: rgb(195, 214, 253);
+	text-align: left;
+	width: auto;
+}
+
+.flex_area {
+	display: flex;
+	text-align: left;
+}
+
+table td {
+    border: 1px solid #333;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 2px;
+}
+
+table th {
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 2px;
+	width:40%;
+}
+
+.media_no{
+	width:24%;
+}
+
+.media_name{
+	width:30%;
+}
+
+.other{
+	background-color:rgb(236, 235, 233);
+}
+
+thead tfoot {
+    background-color: #333;
+    color: #fff;
+}
+
+.current{
+    background-color:white;
+}
+
+.questionsOneContent {
+    width: 90%;
+    padding: 0 0 10px;
+    margin: 10px auto 0;
+    border-bottom: 1px solid #D8D8D8;
+}
+.questionsOnebox {
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.result_music_name {
+    font-size: 16px;
+    font-weight: bold;
+	width:250px;
+	text-align: left;
+    background-color: #FFA17A;
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+}
+.result_media_no {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 5px;
+	width:25px;
+	text-align: left;
+    background-color: #ffffff;
+    padding: 7px;
+    border-radius: 3px;
+    color: rgb(39, 38, 38);
+}
+
+.result_media_category {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 5px;
+	width:40px;
+	text-align: left;
+    background-color: #ffffff;
+    padding: 7px;
+    border-radius: 3px;
+    color: rgb(39, 38, 38);
+}
+.result_media_name {
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 3px;
+	width:280px;
+	text-align: left;
+    background-color: #ffffff;
+    padding: 8px;
+    border-radius: 3px;
+    color: rgb(39, 38, 38);
+}
+.searchFrame{
+	position: relative;
+	display: inline-block;
+}
+.inputBox{
+	padding-right: 20px;
+	width:120px;
+  }
+  
+footer {
+	height: 80px;
+	background-color:  #eeeaec;
+}
+
+footer .copyright {
+	color: #acacac;
+	font-size: 12px;
+	padding-top:30px;
+	letter-spacing: 1px;
+}

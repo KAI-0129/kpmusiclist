@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+{% block content %}
+<main>
+
+    <body>
+        <section class="formstyle">
+            <form action="/serch_music" method="POST">
+                <div class="formId formTitle">曲名を入力
+                <input type="text" name="musicserch" class="inputBox">
+                <input class="btn inputBtn" type="submit" value="検索" name="save"></div>
+                <div class="formId formTitle">※値入力なしで全曲検索できますが検索結果表示に時間がかかります</div>
+            </form>
+        </section>        
+
+    </body>
+
+</main>
+    {% endblock %}
