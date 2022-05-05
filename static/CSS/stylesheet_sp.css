@@ -217,7 +217,7 @@ table th {
 	width:20px;
 	text-align: left;
     background-color: #ffffff;
-    padding: 7px;
+    padding: 7px 3px 7px 5px;
     border-radius: 3px;
     color: rgb(39, 38, 38);
 }
@@ -228,7 +228,7 @@ table th {
 	width:10%;
 	text-align: left;
     background-color: #ffffff;
-    padding: 7px;
+    padding: 7px 5px 7px 3px;
     border-radius: 3px;
     color: rgb(39, 38, 38);
 }
