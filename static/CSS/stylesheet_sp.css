@@ -243,6 +243,39 @@ table th {
     border-radius: 3px;
     color: rgb(39, 38, 38);
 }
+.result_lylics_by {
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 3px;
+	width:40%;
+	text-align: left;
+    background-color: #ffffff;
+    padding: 8px 5px 8px 5px;
+    border-radius: 3px;
+    color: rgb(39, 38, 38);
+}
+.result_composition_by {
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 3px;
+	width:40%;
+	text-align: left;
+    background-color: #ffffff;
+    padding: 8px 5px 8px 5px;
+    border-radius: 3px;
+    color: rgb(39, 38, 38);
+}
+.result_lylics_display {
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 3px;
+	width:40%;
+	text-align: left;
+    background-color: #ffffff;
+    padding: 8px 5px 8px 5px;
+    border-radius: 3px;
+    color: rgb(39, 38, 38);
+}
 .searchFrame{
 	position: relative;
 	display: inline-block;
