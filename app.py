@@ -47,7 +47,38 @@ def serch_music_post():
 #            # 検索失敗すると、検索画面に戻す
             return render_template("/result_ng.html",html_name=musicname,html_serch_ER=serch_ER)
         else:
-            return render_template("/result.html",html_name=musicname,html_match_ids=match_ids)  
+            return render_template("/result.html",html_name=musicname,html_match_ids=match_ids) 
+
+@app.route('/serch_lylics')
+def serch_lylics():
+    return render_template('serch_lylics.html')
+
+@app.route("/serch_lylics", methods=["POST"])
+def serch_lylics_post():
+
+        # ブラウザから送られてきた歌詞(lylicsserch)を変数 (lylicsvalue) に入れる
+        lylicsvalue = request.form.get('lylicsserch')
+        print (lylicsvalue)
+        # KP_MusicList.dbに接続
+        conn = sqlite3.connect('KP_MusicList.db')
+        c = conn.cursor()
+
+        #一致している列をすべてmatch_idsにリストで入れる
+        match_ids = []
+        c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics_kana like ? ", ('%' +lylicsvalue+ '%',)) 
+        for row in c.fetchall(): 
+            match_ids.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
+            print (match_ids)
+        c.close()
+
+
+        if match_ids is Empty:
+            serch_ER = "指定したキーワードに合致する検索結果がありません"
+#            # 検索失敗すると、検索画面に戻す
+            return render_template("/result_lylics_ng.html",html_name=lylicsvalue,html_serch_ER=serch_ER)
+        else:
+            return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
+   
 
 if __name__ == "__main__":
     app.run()

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<title>Music list of King and Prince RESULT LYLICS</title>
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZF7EK5T707"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZF7EK5T707');
+</script>
+ -->
+
+<link rel="stylesheet" type="text/css" media="screen and ( min-width:769px )" href="../static/CSS/stylesheet.css">
+<link rel="stylesheet" type="text/css" media="screen and ( max-width:768px )" href="../static/CSS/stylesheet_sp.css">
+<main>
+
+    <body>
+        <section class="formstyle">
+            <form action="/serch_lylics" method="POST">
+                <div class="formId formTitle">歌詞を入力
+                <input type="text" name="lylicsserch" class="inputBox">
+                <input class="btn inputBtn" type="submit" value="検索" name="save"></div>
+                <div class="formId formTitle">※</div>
+            </form>
+        </section> 
+
+        <h3>検索キーワード:{{html_name}}</h3>
+
+        <div class="questionsOneContent">
+            <ul class="questionsOnebox" >
+                <li class="result_music_name">曲名</li>
+                <li class="result_lylics_by">作詞</li>
+                <li class="result_composition_by">作曲</li>
+                <li class="result_lylics_display">歌詞</li>
+            </ul>
+        </div>
+        {%for item in html_match_ids %}
+        <div class="questionsOneContent">
+            <ul class="questionsOnebox" >
+                <li class="result_music_name">{{item["music_name"]}}</li>
+                <li class="result_lylics_by">{{item["lylics_by"]}}</li>
+                <li class="result_composition_by">{{item["composition_by"]}}</li>
+                <li class="result_lylics_display">{{item["lylics_display"]}}</li>
+            </ul>
+        </div>
+        {% endfor %}
+    </body>
+</main>
+    {% endblock %}
