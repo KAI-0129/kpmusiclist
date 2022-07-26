@@ -21,15 +21,15 @@
 
     <body>
         <section class="formstyle">
-            <form action="/serch_lylics" method="POST">
-                <div class="formId formTitle">ひらがなで歌詞を入力
-                <input type="text" name="lylicsserch" class="inputBox">
-                <input class="btn inputBtn" type="submit" value="検索" name="save"></div>
-                <div class="formId formTitle">※</div>
-            </form>
-        </section>        
-
+                
+                <form action="/serch_lylics" method="POST">
+                    <b>歌詞を入力：</b>
+                    <input type="text" name="inputed_lylics" class="inputBox">
+                    <input type="hidden" name="tpl" value="include/result_rylics.html" />
+                    <input class="btn inputBtn" type="submit" value="検索" name="save">
+                </form>
+        </section> 
+        
     </body>
-
 </main>
     {% endblock %}

@@ -19,23 +19,9 @@
 <main>
 
     <body>
-        <script type="text/javascript">
-            function dispButton(){
-                var btnName  = document.fm.button1.value;
-                alert('クリックしたボタン名は｢' + btnName + '｣です' );
-            }
-        </script>
-
         <section class="formstyle">
-            <form action="/serch_lylics" method="POST">
-                <b>歌詞を入力：</b>
-                <input type="text" name="inputed_lylics" class="inputBox">
-                <input type="hidden" name="tpl" value="include/result_rylics.html" />
-                <input class="btn inputBtn" type="submit" value="検索" name="save">
-            </form>
-        </section> 
 
-        <h3>検索キーワード:{{html_name}}</h3>
+        </section> 
 
         <div class="questionsOneContent">
             <ul class="questionsOnebox" >
@@ -45,16 +31,26 @@
                 <li class="result_lylics_display">歌詞</li>
             </ul>
         </div>
+<!-- 
         {%for item in html_match_ids %}
         <div class="questionsOneContent">
             <ul class="questionsOnebox" >
-                
-                <li   class="result_music_name">{{item["music_name"]}}</li>
+                <li class="result_music_name">{{item["music_name"]}}</li>
                 <li class="result_lylics_by">{{item["lylics_by"]}}</li>
                 <li class="result_composition_by">{{item["composition_by"]}}</li>
                 <li class="result_lylics_display">{{item["lylics_display"]}}</li>
             </ul>
         </div>
+-->
+
+
+        {%for item in html_full_lylics %}
+        <div class="questionsOneContent">
+            <ul class="questionsOnebox" >
+                <li class="result_lylics_display">{{item["lylics_display"]}}</li>
+            </ul>
+        </div>
+
         {% endfor %}
     </body>
 </main>

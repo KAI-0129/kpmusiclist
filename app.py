@@ -1,9 +1,13 @@
+from pickle import TRUE
 from queue import Empty
 import re, logging
 from flask import Flask, render_template, redirect, request, session
 from flask.templating import render_template
+import tkinter as tk
 import random
 import sqlite3
+
+from pkg_resources import empty_provider
 
 app = Flask(__name__)
 app.secret_key = "KAI"  #loging
@@ -56,29 +60,72 @@ def serch_lylics():
 @app.route("/serch_lylics", methods=["POST"])
 def serch_lylics_post():
 
-        # ブラウザから送られてきた歌詞(lylicsserch)を変数 (lylicsvalue) に入れる
-        lylicsvalue = request.form.get('lylicsserch')
-        print (lylicsvalue)
+        # ブラウザから送られてきた歌詞(inputed_lylics)を変数 (lylicsvalue) に入れる
+        lylicsvalue_before = request.form.get('inputed_lylics')
+        print ("lylicsvalue_before:",lylicsvalue_before)
+        #全角スペースを半角スペースに変換
+        lylicsvalue = lylicsvalue_before.replace('　',' ')
+        if lylicsvalue =="":
+            lylicsvalue = "値を入力してください"
+        elif lylicsvalue == " ":
+            lylicsvalue = "スペース1つだけでは検索できません"
+        else:
+            print ("lylicsvalue_after:",lylicsvalue)
+
         # KP_MusicList.dbに接続
         conn = sqlite3.connect('KP_MusicList.db')
         c = conn.cursor()
 
         #一致している列をすべてmatch_idsにリストで入れる
         match_ids = []
-        c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics_kana like ? ", ('%' +lylicsvalue+ '%',)) 
+
+        #lylics_displayで検索
+        c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics_display like ? ", ('%' +lylicsvalue+ '%',)) 
         for row in c.fetchall(): 
             match_ids.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
-            print (match_ids)
-        c.close()
+            print ("lylics_display:",match_ids)
 
+        #lylics_displayでヒットがなければlylicsで検索
+        if not match_ids:
+            c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics like ? ", ('%' +lylicsvalue+ '%',)) 
+            for row in c.fetchall(): 
+                match_ids.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
+            print ("lylics:",match_ids)
 
-        if match_ids is Empty:
-            serch_ER = "指定したキーワードに合致する検索結果がありません"
-#            # 検索失敗すると、検索画面に戻す
-            return render_template("/result_lylics_ng.html",html_name=lylicsvalue,html_serch_ER=serch_ER)
+            #lylicsでヒットがなければlylics_kanaで検索
+            if not match_ids:
+                c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics_kana like ? ", ('%' +lylicsvalue+ '%',)) 
+                for row in c.fetchall(): 
+                    match_ids.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
+                print ("lylics_kana:",match_ids)
+                c.close()
+                return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
+
+            else:
+                c.close()
+                return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
+
         else:
+            c.close()
             return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
-   
+
+
+
+@app.route("/all_lylics")
+def all_lylics():
+
+        
+
+        # KP_MusicList.dbに接続
+        conn = sqlite3.connect('KP_MusicList.db')
+        c = conn.cursor()
+
+        full_lylics = []
+        c.execute("SELECT id,lylics_display order by id asc FROM product_lylics WHERE music_name like ? ", (music_name)) 
+        for row in c.fetchall(): 
+            full_lylics.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
+
+        return render_template("/all_lylics.html",html_full_lylics=full_lylics)
 
 if __name__ == "__main__":
     app.run()
