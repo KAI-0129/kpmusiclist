@@ -19,13 +19,6 @@
 <main>
 
     <body>
-        <script type="text/javascript">
-            function dispButton(){
-                var btnName  = document.fm.button1.value;
-                alert('クリックしたボタン名は｢' + btnName + '｣です' );
-            }
-        </script>
-
         <section class="formstyle">
             <form action="/serch_lylics" method="POST">
                 <b>歌詞を入力：</b>
@@ -48,8 +41,7 @@
         {%for item in html_match_ids %}
         <div class="questionsOneContent">
             <ul class="questionsOnebox" >
-                
-                <li   class="result_music_name">{{item["music_name"]}}</li>
+                <li class="result_music_name">{{item["music_name"]}}</li>
                 <li class="result_lylics_by">{{item["lylics_by"]}}</li>
                 <li class="result_composition_by">{{item["composition_by"]}}</li>
                 <li class="result_lylics_display">{{item["lylics_display"]}}</li>
