@@ -1,9 +1,7 @@
-from pickle import TRUE
 from queue import Empty
 import re, logging
 from flask import Flask, render_template, redirect, request, session
 from flask.templating import render_template
-import tkinter as tk
 import random
 import sqlite3
  
