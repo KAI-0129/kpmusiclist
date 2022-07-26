@@ -111,21 +111,21 @@ def serch_lylics_post():
 
 
 
-@app.route("/all_lylics")
-def all_lylics():
+#@app.route("/all_lylics")
+#def all_lylics():
 
         
 
         # KP_MusicList.dbに接続
-        conn = sqlite3.connect('KP_MusicList.db')
-        c = conn.cursor()
+#        conn = sqlite3.connect('KP_MusicList.db')
+#        c = conn.cursor()
 
-        full_lylics = []
-        c.execute("SELECT id,lylics_display order by id asc FROM product_lylics WHERE music_name like ? ", (music_name)) 
-        for row in c.fetchall(): 
-            full_lylics.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
-
-        return render_template("/all_lylics.html",html_full_lylics=full_lylics)
+#        full_lylics = []
+#        c.execute("SELECT id,lylics_display order by id asc FROM product_lylics WHERE music_name like ? ", (music_name)) 
+#        for row in c.fetchall(): 
+#            full_lylics.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
+#
+#        return render_template("/all_lylics.html",html_full_lylics=full_lylics)
 
 if __name__ == "__main__":
     app.run()
