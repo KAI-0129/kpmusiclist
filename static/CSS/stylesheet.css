@@ -119,6 +119,14 @@ section h1 {
 	padding: 3%;
 }
 
+.jumpto{
+	max-width: 1800px;
+	padding: 2%;
+	margin: 0 auto;
+	text-align: left;
+	color:slategrey
+}
+
 .lenge{
 	width:32%;
 }
