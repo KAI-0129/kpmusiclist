@@ -36,7 +36,7 @@ body {
 }
 
 header {
-	height:45px;
+	height:55px;
 	width: 100%;
 	background-color: #eeeaec;
 	text-align: center;
@@ -54,13 +54,14 @@ header ul {
 header li {
 	color: #555;
 	width: 25%;
-	height:20px;
+	height:19px;
 	transition:0.2s; 
+	line-height:1;
 }
 
 header li:hover{ 
 	color:crimson;
-	font-size: 25px;
+	font-size: 23px;
 }
 
 .open{

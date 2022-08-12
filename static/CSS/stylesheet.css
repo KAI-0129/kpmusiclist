@@ -37,7 +37,8 @@ body {
 }
 
 header {
-	height:60px;
+	margin-top: 0px;
+	height:72px;
 	width: 100%;
 	background-color: #eeeaec;
 	text-align: center;
@@ -57,11 +58,12 @@ header li {
 	width: 25%;
 	height:60px;
 	transition:0.2s; 
+	line-height:1;
 }
 
 header li:hover{ 
 	color:crimson;
-	font-size: 30px;
+	font-size: 25px;
 }
 
 .open{

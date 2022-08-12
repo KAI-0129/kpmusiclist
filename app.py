@@ -61,10 +61,33 @@ def serch_lylics_post():
         print ("lylicsvalue_before:",lylicsvalue_before)
         #全角スペースを半角スペースに変換
         lylicsvalue = lylicsvalue_before.replace('　',' ')
+        #半角?を全角？に変換
+        lylicsvalue = lylicsvalue_before.replace('?','？')
+        #半角!を全角！に変換
+        lylicsvalue = lylicsvalue_before.replace('!','！')
+        
         if lylicsvalue =="":
             lylicsvalue = "値を入力してください"
         elif lylicsvalue == " ":
             lylicsvalue = "スペース1つだけでは検索できません"
+        elif lylicsvalue == ",":
+            lylicsvalue = ", 1つだけでは検索できません"
+        elif lylicsvalue == "、":
+            lylicsvalue = "、1つだけでは検索できません"
+        elif lylicsvalue == "「":
+            lylicsvalue = "「1つだけでは検索できません"
+        elif lylicsvalue == "」":
+            lylicsvalue = "」1つだけでは検索できません"
+        elif lylicsvalue == "ー":
+            lylicsvalue = "ー1つだけでは検索できません"
+        elif lylicsvalue == "（":
+            lylicsvalue = "（1つだけでは検索できません"
+        elif lylicsvalue == "）":
+            lylicsvalue = "）1つだけでは検索できません"
+        elif lylicsvalue == "(":
+            lylicsvalue = "(1つだけでは検索できません"
+        elif lylicsvalue == ")":
+            lylicsvalue = ")1つだけでは検索できません"
         else:
             print ("lylicsvalue_after:",lylicsvalue)
 
@@ -73,37 +96,45 @@ def serch_lylics_post():
         c = conn.cursor()
 
         #一致している列をすべてmatch_idsにリストで入れる
+        match_idsdup = []
         match_ids = []
+
 
         #lylics_displayで検索
         c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics_display like ? ", ('%' +lylicsvalue+ '%',)) 
         for row in c.fetchall(): 
-            match_ids.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
-            print ("lylics_display:",match_ids)
+            match_idsdup.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
+            #print ("lylics_display:",match_ids)
 
         #lylics_displayでヒットがなければlylicsで検索
-        if not match_ids:
-            c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics like ? ", ('%' +lylicsvalue+ '%',)) 
-            for row in c.fetchall(): 
-                match_ids.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
-            print ("lylics:",match_ids)
+        #if not match_ids:
+        c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics like ? ", ('%' +lylicsvalue+ '%',)) 
+        for row in c.fetchall(): 
+            match_idsdup.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
+        #print ("lylics:",match_ids)
 
             #lylicsでヒットがなければlylics_kanaで検索
-            if not match_ids:
-                c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics_kana like ? ", ('%' +lylicsvalue+ '%',)) 
-                for row in c.fetchall(): 
-                    match_ids.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
-                print ("lylics_kana:",match_ids)
-                c.close()
-                return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
+        #if not match_ids:
+        c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics_kana like ? ", ('%' +lylicsvalue+ '%',)) 
+        for row in c.fetchall(): 
+            match_idsdup.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
+        print ("match_idsdup:",match_idsdup)
 
-            else:
-                c.close()
-                return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
+        def get_unique_list(seq):
+            seen = []
+            return [x for x in seq if x not in seen and not seen.append(x)]
 
-        else:
-            c.close()
-            return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
+        match_ids = get_unique_list(match_idsdup)
+        print ("match_ids:",match_ids)
+        # c.close()
+        #return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
+
+        #else:
+        #    c.close()
+        #    return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
+        #else:
+        c.close()
+        return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
 
 
 if __name__ == "__main__":
