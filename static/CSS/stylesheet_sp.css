@@ -57,6 +57,7 @@ header li {
 	height:13px;
 	transition:0.2s; 
 	line-height:1;
+	font-size:  16px;
 }
 
 header li:hover{ 
