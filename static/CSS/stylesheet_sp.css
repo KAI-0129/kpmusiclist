@@ -170,6 +170,11 @@ h4 {
 	text-align: left;
 }
 
+.CD_title p {
+	background-color: rgb(195, 214, 253);
+	text-align: left;
+	padding-bottom: 0px;
+}
 
 table td {
     border: 1px solid #333;

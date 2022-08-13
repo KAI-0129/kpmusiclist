@@ -173,6 +173,14 @@ h4 {
 	width: auto;
 }
 
+.CD_title p {
+	background-color: rgb(195, 214, 253);
+	text-align: left;
+	width: auto;
+	padding-left: 55px;	
+	padding-bottom: 0px;
+}
+
 .flex_area {
 	display: flex;
 	text-align: left;

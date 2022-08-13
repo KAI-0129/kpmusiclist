@@ -99,26 +99,23 @@ def serch_lylics_post():
         match_idsdup = []
         match_ids = []
 
-
         #lylics_displayで検索
         c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics_display like ? ", ('%' +lylicsvalue+ '%',)) 
         for row in c.fetchall(): 
             match_idsdup.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
-            #print ("lylics_display:",match_ids)
+        #print ("lylics_display:",match_ids)
 
-        #lylics_displayでヒットがなければlylicsで検索
-        #if not match_ids:
+        #lylicsで検索
         c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics like ? ", ('%' +lylicsvalue+ '%',)) 
         for row in c.fetchall(): 
             match_idsdup.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
         #print ("lylics:",match_ids)
 
-            #lylicsでヒットがなければlylics_kanaで検索
-        #if not match_ids:
+        #lylics_kanaで検索
         c.execute("SELECT distinct music_name,lylics_by,composition_by,lylics_display FROM product_lylics WHERE lylics_kana like ? ", ('%' +lylicsvalue+ '%',)) 
         for row in c.fetchall(): 
             match_idsdup.append({"music_name":row[0],"lylics_by":row[1], "composition_by": row[2], "lylics_display": row[3]})
-        print ("match_idsdup:",match_idsdup)
+        #print ("match_idsdup:",match_idsdup)
 
         def get_unique_list(seq):
             seen = []
@@ -126,16 +123,9 @@ def serch_lylics_post():
 
         match_ids = get_unique_list(match_idsdup)
         print ("match_ids:",match_ids)
-        # c.close()
-        #return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
 
-        #else:
-        #    c.close()
-        #    return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
-        #else:
         c.close()
         return render_template("/result_lylics.html",html_name=lylicsvalue,html_match_ids=match_ids) 
-
 
 if __name__ == "__main__":
     app.run()
