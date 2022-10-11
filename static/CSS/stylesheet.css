@@ -182,6 +182,13 @@ h4 {
 	color:#555;
 }
 
+.music_option {
+	text-align: left;
+	width: auto;
+	font-size: 14px;
+	padding-left: 30px;
+}
+
 .flex_area {
 	display: flex;
 	text-align: left;

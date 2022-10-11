@@ -178,6 +178,12 @@ h4 {
 	font-size:16px;
 }
 
+.music_option {
+	text-align: left;
+	width: auto;
+	font-size: 14px;
+}
+
 table td {
     border: 1px solid #333;
 	text-align: left;
