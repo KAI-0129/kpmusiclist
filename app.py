@@ -8,6 +8,10 @@ import sqlite3
 app = Flask(__name__)
 app.secret_key = "KAI"  #loging
 
+@app.route('/MV')
+def mv():
+    return render_template('MV_times.html')
+
 @app.route('/')
 def top():
     return render_template('index.html')
