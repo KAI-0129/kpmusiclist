@@ -53,7 +53,7 @@ header ul {
 
 header li {
 	color: #555;
-	width: 25%;
+	width: %;
 	height:13px;
 	transition:0.2s; 
 	line-height:1;
@@ -118,7 +118,12 @@ section h1 {
 	color: rgb(27, 67, 187);
 }
 
-
+section gdata{
+	padding:20px 0;
+	display: flex;
+	border:6px solid #d4c4bc;
+	margin:0 auto;
+}
 .box {
 	max-width: 1500px;
 	margin: 0 auto;
@@ -307,17 +312,3 @@ table th {
 	padding-right: 20px;
 	width:120px;
   }
-
-  iframe graph{
-	text-align: center;
-	padding: 8px;
-	border:6px solid #d4c4bc;
-	border-radius:10px 10px 10px 10px;
-}
-
-iframe db{
-
-	border:6px solid #d4c4bc;
-	border-radius:10px 10px 10px 10px;
-	margin-left: 100px;
-}
