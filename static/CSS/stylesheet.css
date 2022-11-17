@@ -115,6 +115,15 @@ section h1 {
 	color: rgb(27, 67, 187);
 }
 
+section gdata{
+	width:961px;
+	height: 647px;
+	padding:20px 0;
+	display:block;
+	border:6px solid #d4c4bc;
+	margin:0 auto;
+}
+
 .box {
 	max-width: 1500px;
 	margin: 0 auto;
@@ -338,19 +347,3 @@ footer .copyright {
 	letter-spacing: 1px;
 }
 
-iframe graph{
-	text-align: center;
-	padding: 8px;
-	width:961px;
-	height:647px; 
-	border:6px solid #d4c4bc;
-	border-radius:10px 10px 10px 10px;
-}
-
-iframe db{
-	text-align: center;
-	width:961px;
-	height:1000px; 
-	border:6px solid #d4c4bc;
-	border-radius:10px 10px 10px 10px;
-}
