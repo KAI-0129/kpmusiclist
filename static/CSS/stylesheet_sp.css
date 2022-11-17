@@ -307,3 +307,17 @@ table th {
 	padding-right: 20px;
 	width:120px;
   }
+
+  iframe graph{
+	text-align: center;
+	padding: 8px;
+	border:6px solid #d4c4bc;
+	border-radius:10px 10px 10px 10px;
+}
+
+iframe db{
+
+	border:6px solid #d4c4bc;
+	border-radius:10px 10px 10px 10px;
+	margin-left: 100px;
+}
