@@ -12,6 +12,11 @@ app.secret_key = "KAI"  #loging
 def mv():
     return render_template('MV_times.html')
 
+@app.route('/tukiyomi')
+def tukiyomi():
+    return render_template('MV_times_tukiyomi.html')
+    
+
 @app.route('/')
 def top():
     return render_template('index.html')
