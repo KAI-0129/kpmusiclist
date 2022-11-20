@@ -16,6 +16,9 @@ def mv():
 def tukiyomi():
     return render_template('MV_times_tukiyomi.html')
     
+@app.route('/all')
+def all():
+    return render_template('MV_times_all.html')
 
 @app.route('/')
 def top():

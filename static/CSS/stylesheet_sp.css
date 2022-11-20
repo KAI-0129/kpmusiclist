@@ -36,7 +36,7 @@ body {
 }
 
 header {
-	height:55px;
+	height:100px;
 	width: 100%;
 	background-color: #eeeaec;
 	text-align: center;
@@ -47,23 +47,37 @@ header ul {
 	/* width:1200px; */
 	width: 25%;
 	margin: 0 auto;
-	display: flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
+ul li {
+	-webkit-flex-grow: 1;
+   flex-grow: 1;
+   width: 20%;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
 
 header li {
 	color: #555;
-	width: %;
-	height:13px;
+	width: 20%;
+	height:50px;
 	transition:0.2s; 
 	line-height:1;
-	font-size:  15px;
 }
 
 header li:hover{ 
 	color:crimson;
 	font-size: 23px;
 }
+
+
+
 
 .open{
 	width:90%;
@@ -106,7 +120,7 @@ p{
 }
 
 section {
-	padding: 20px 0;
+	padding: 40px 0;
 	text-align:left;
 }
 
@@ -157,7 +171,7 @@ section gdata{
 #sec1 h1 {
 	font-size: 30px;
 	color: #fff;
-	padding: 35px 5px 0px 15px;
+	padding: 65px 5px 0px 15px;
 }
 
 h4 {
