@@ -15,6 +15,10 @@ def mv():
 @app.route('/tukiyomi')
 def tukiyomi():
     return render_template('MV_times_tukiyomi.html')
+
+@app.route('/MagicTouch')
+def magictouch():
+    return render_template('MV_times_MagicTouch.html')
     
 @app.route('/all')
 def all():
