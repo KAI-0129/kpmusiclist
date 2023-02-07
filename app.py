@@ -17,9 +17,13 @@ def tukiyomi():
     return render_template('MV_times_tukiyomi.html')
 
 @app.route('/Lifegoeson')
-def magictouch():
+def Lifegoeson():
     return render_template('MV_times_Lifegoeson.html')
-    
+
+@app.route('/Weareyoung')
+def Weareyoung():
+    return render_template('MV_times_Weareyoung.html')
+
 @app.route('/all')
 def all():
     return render_template('MV_times_all.html')
