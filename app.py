@@ -24,6 +24,10 @@ def Lifegoeson():
 def Weareyoung():
     return render_template('MV_times_Weareyoung.html')
 
+@app.route('/kingandprinceru')
+def kingandprinceru():
+    return render_template('kingandprinceru.html')
+
 @app.route('/all')
 def all():
     return render_template('MV_times_all.html')
