@@ -16,9 +16,9 @@ def mv():
 def tukiyomi():
     return render_template('MV_times_tukiyomi.html')
 
-@app.route('/Lifegoeson')
+@app.route('/CinderellaGirl')
 def Lifegoeson():
-    return render_template('MV_times_Lifegoeson.html')
+    return render_template('MV_times_CinderellaGirl.html')
 
 @app.route('/Weareyoung')
 def Weareyoung():
